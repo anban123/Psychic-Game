@@ -29,7 +29,7 @@ function reset() {
 }
 
 document.onkeyup = function(event) {
-    userGuess = event.key.toLowerCase;
+    userGuess = (event.key).toLowerCase();
 
     console.log(event.key)
 
@@ -39,27 +39,32 @@ document.onkeyup = function(event) {
         
     } else if (userGuess !== computerGuess) {
         guessesLeft--;
-        userGuess = "";
-        userGuesses = [];            //userGuesses.push(userGuess)
+        userGuesses.push(userGuess);
+        document.getElementById("guessSpan").textContent = userGuesses; 
+        console.log(userGuesses);
     } 
     
-    if (userGuesses == 0) {
+    if (guessesLeft == 0) {
         losses++;
         reset();
     }
     
-
-//Puts the wins, losses etc on page
-
-
+    
+    //Puts the wins, losses etc on page
+    
+    
     winstext.textContent = "Wins: " + wins;
     lossestext.textContent = "Losses: " + losses;
     guessesLefttext.textContent = "Guesses Left: " + guessesLeft;                           
-    userGuesstext.textContent = "Your Guesses so far: " + userGuess;
+    //userGuesstext.textContent = "Your Guesses so far: " + userGuess;
 
+    // for (var i = 0; i < userGuesses.length; i++) {
+    //     document.getElementById("guessSpan"); 
+    // }
+    
 }
 
-// prepend makes numbers stack  $().prepend() or whatever .abbend?
+// prepend makes numbers stack  $().prepend() or whatever .append?
 
 // var reset = function () {
 

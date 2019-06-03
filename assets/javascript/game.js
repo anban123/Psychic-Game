@@ -23,16 +23,20 @@ computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.lengt
 
 console.log(computerGuess)
 
+//rest function for when game is done
 function reset() {
     guessesLeft = 10;  
     userGuesses = [];
 }
 
+//logs user's keys pressed and making them all lowercase 
 document.onkeyup = function(event) {
     userGuess = (event.key).toLowerCase();
 
     console.log(event.key)
 
+
+//if else statment
     if (userGuess === computerGuess) {
         wins++;
         reset()
@@ -44,6 +48,7 @@ document.onkeyup = function(event) {
         console.log(userGuesses);
     } 
     
+    //if statement to reset game once guesses are used up
     if (guessesLeft == 0) {
         losses++;
         reset();
@@ -51,12 +56,15 @@ document.onkeyup = function(event) {
     
     
     //Puts the wins, losses etc on page
-    
-    
     winstext.textContent = "Wins: " + wins;
     lossestext.textContent = "Losses: " + losses;
     guessesLefttext.textContent = "Guesses Left: " + guessesLeft;                           
-    //userGuesstext.textContent = "Your Guesses so far: " + userGuess;
+
+
+    //END OF GAME
+
+
+    //NOTES etc... 
 
     // for (var i = 0; i < userGuesses.length; i++) {
     //     document.getElementById("guessSpan"); 
